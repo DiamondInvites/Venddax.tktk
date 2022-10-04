@@ -290,7 +290,7 @@ textarea {
 updateVisitCount();
 
 function updateVisitCount() {
-	fetch('https://api.countapi.xyz/update/Venddax.github.io')
+	fetch('https://api.countapi.xyz/hit/Venddax.github.io')
 	.then(res => res.json())
 	.then(res => {
 		countEl.innerHTML = res.value;
