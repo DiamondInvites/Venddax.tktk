@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Vendax</title>
+  <!-- font icons -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
+  <!--  main styles -->
+  <link rel="stylesheet" href="assets/css/rubic.css">
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+  <nav id="scrollspy" class="navbar page-navbar navbar-dark navbar-expand-md fixed-top" data-spy="affix" data-offset-top="20">
+    <div class="container">
+      <a class="navbar-brand" href="#"><strong class="text-light">VEN</strong><span class="text-dark">DAX</span></a>
+      </button>
+
+
+    </div>
+  </nav>
+  <header class="header d-flex justify-content-center">
+    <div class="container">
+      <div class="row h-100 align-items-center">
+        <div class="col-md-7">
+          <div class="header-content">
+            <h3 class="header-title"><strong class="text-light">VEN</strong><span class="text-dark">DAX</span></h3>
+            <h4 class="header-subtitle">Content Creator on TikTok</h4>
+           <p>@vendaxgang(goofy) is a content creator on tiktok and uploads random content like memes</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="social-wrapper" id="features">
+    <div class="container">
+      <div class="social-txt">
+
+        <div class="scrolling-limit">
+          <div class="scrolling">
+
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+            • FOLLOW ME ON TIKTOK
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <style>
+    div.scrolling-limit {
+      width: 370px;
+      height: 20px;
+      overflow: hidden;
+      white-space: nowrap;
+
+    }
+
+    div.scrolling {
+      position: relative;
+      -webkit-animation: scroll 20s infinite linear;
+      ;
+      -moz-animation: scroll 20s infinite linear;
+      -o-animation: scroll 20s infinite linear;
+      animation: scroll 20s infinite linear;
+    }
+
+    @keyframes scroll {
+      0% {
+        left: 500px;
+      }
+
+      100% {
+        left: -950px;
+      }
+    }
+
+    @-webkit-keyframes scroll {
+      0% {
+        left: 500px;
+      }
+
+      100% {
+        left: -950px;
+      }
+    }
+  </style>
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <div class="col-md-5 align-self-center mb-4 mb-md-0">
+                    <div class="header-content">
+            <h3 class="header-title"><strong class="text-light">CONTACT </strong><span
+            class="text-info">US</span></h3>
+          </div>
+   
+          <p>For Inquiries and Support, you can contact us with the inputs below.</p>
+          <ul class="list-unstyled mt-4">
+            <li class="media">
+              <div class="circle-40 mr-3 mt-1"></div>
+              <div class="media-body">
+                <h6 class="mb-2">Memes</h6>
+                <p>For memes, you can message me on mail, just complete the form below and add #UploadMeme and wait for me to response, and upload your meme in my account with your credit.</p>
+              </div>
+            </li>
+            <li class="media">
+              <div class="circle-40 mr-3 mt-1"></div>
+              <div class="media-body">
+                <h6 class="mb-2">Promote</h6>
+                <p>Open for Promotions for free</p>
+              </div>
+            </li>
+            <li class="media">
+              <div class="circle-40 mr-3 mt-1"></div>
+              <div class="media-body">
+                <h6 class="mb-2">Questions</h6>
+                <p>Ask me anything you want to know.</p>
+              </div>
+            </li>
+          </ul>
+ 
+  </div>
+
+        <div class="col-md-6 col-lg-5">
+      <form id="my-form" action="https://formspree.io/f/xoqbwebb" method="POST">
+    
+        <input class="feedback-input" type="email" name="email" placeholder="Email" />
+    
+        <input class="feedback-input" type="text" name="message" placeholder="Message" />
+        <button id="my-form-button" type="submit">Submit</button>
+         <h4 style="align-self: center; color: #fff;"id="my-form-status"></h4>
+         </button>
+      </div>
+
+      </form>     
+       </div>
+
+
+  </section>
+          <div class='sk-tiktok-feed' data-embed-id='94967'></div>
+          <script src='https://widgets.sociablekit.com/tiktok-feed/widget.js' async defer></script>
+  <section class="section">
+    <div class="container">
+      
+
+</div>
+  </section>
+
+  <!-- Place this script at the end of the body tag -->
+  <script>
+    var form = document.getElementById("my-form");
+  
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("my-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "Thanks for your submission! I appreciate you, Moderator will review your message.";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "Oops! There was a problem submitting your form"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+  </script>
+  
+  
+  
+<style>
+  form { max-width:420px; margin:50px auto; }
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #999; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#666;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+[type="submit"]:hover { background:#999; }
+
+</style>
+
+  <section class="section" id="pricing">
+    
+    <div class="container text-center">
+      <h6 class="display-4 has-line">@youraccount</h6>
+      <p class="mb-5 pb-4">Your account promotions will be attached here.</p>
+      <div class="row pt-5">
+        <div class="col-lg-4">
+          <a href="javascript:void(0)" class="pricing-card">
+            <div class="head">This page was viewed</div>
+            <div class="body">
+              <h1 id="count">0</h1>
+              <p>times</p>
+            </div>
+          </a>
+        </div>
+       </div>
+      </div>
+     </section>
+        <section class="section has-img-bg text-center">
+        <div class="container">
+            <h6 class="display-3 has-line">ALIGHT MOTION PRO </h6>
+            <h5 class="mb-5 font-weight-light">Alight Motion Pro Subscription Unlocked.<br> <strong>Version</strong> 4.2.4.854</h5>
+              <a href="https://bit.ly/3SxswrW"class="btn btn-outline-light btn-flat">Download</a>
+              
+        </div>
+        <br>
+        <br>
+        <br>
+        <!-- Start of ouo.io banner code -->
+        <a href="http://ouo.io/ref/Cs0m8Mu5"><img src="http://ouo.io/images/banners/r5.jpg" title="ouo.io - Make short links and earn the biggest money" /></a>
+        <!-- End of ouo.io banner code -->
+    </section>
+
+  <footer class="footer py-4 bg-dark text-light">
+    <div class="container text-center">
+      <p class="mb-4 small">Copyright <script>
+          document.write(new Date().getFullYear())
+        </script> &copy; VENDAX</p>
+
+    </div>
+  </footer>
+<script>
+  const countEl = document.getElementById('count');
+
+updateVisitCount();
+
+function updateVisitCount() {
+	fetch('https://api.countapi.xyz/update/Venddax.github.io')
+	.then(res => res.json())
+	.then(res => {
+		countEl.innerHTML = res.value;
+	})
+}
+
+
+</script>
+
+
+</body>
+
+</html>
